@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "7d0f7236-ed8d-4ce9-8099-61b0ab02706b",
+		"name": "Yandex Weather",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23688018"
+	},
+	"item": [
+		{
+			"name": "Получения погоды",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Yandex-API-Key",
+						"value": "{{key}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.weather.yandex.ru/v2/forecast?lat=55&lon=50&lang=ru_RU\n",
+					"protocol": "https",
+					"host": [
+						"api",
+						"weather",
+						"yandex",
+						"ru"
+					],
+					"path": [
+						"v2",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "55"
+						},
+						{
+							"key": "lon",
+							"value": "50"
+						},
+						{
+							"key": "lang",
+							"value": "ru_RU\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получения погоды с неправильными данными",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Yandex-API-Key",
+						"value": "{{key}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.weather.yandex.ru/v2/forecastlat=55&lon=50&long=ru_RU\n",
+					"protocol": "https",
+					"host": [
+						"api",
+						"weather",
+						"yandex",
+						"ru"
+					],
+					"path": [
+						"v2",
+						"forecastlat=55&lon=50&long=ru_RU\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получения погоды без укзания тела запроса",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Yandex-API-Key",
+						"value": "{{key}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.weather.yandex.ru/v2/forecast?lat=55&lon=50&long=ru_RU\n",
+					"protocol": "https",
+					"host": [
+						"api",
+						"weather",
+						"yandex",
+						"ru"
+					],
+					"path": [
+						"v2",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "55"
+						},
+						{
+							"key": "lon",
+							"value": "50"
+						},
+						{
+							"key": "long",
+							"value": "ru_RU\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получения погоды с неправильными данными, без указания тела запроса и без ключа доступа",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Yandex-API-Key",
+						"value": "{{key}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.weather.yandex.ru/v2/forecastlat=55&lon=50&long=ru_RU\n",
+					"protocol": "https",
+					"host": [
+						"api",
+						"weather",
+						"yandex",
+						"ru"
+					],
+					"path": [
+						"v2",
+						"forecastlat=55&lon=50&long=ru_RU\n"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "key",
+			"value": "4b7b8911-0d25-42a2-9359-bfc5cb56bdaf",
+			"type": "string"
+		}
+	]
+}

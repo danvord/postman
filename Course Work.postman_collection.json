@@ -1,0 +1,500 @@
+{
+	"info": {
+		"_postman_id": "e7623e67-0182-452b-a260-3a2ac961ba85",
+		"name": "Course Work",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23688018"
+	},
+	"item": [
+		{
+			"name": "to get a list",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"from\": \"2022-11-05T00:00:00+04:00\",\r\n    \"till\": \"2022-11-05T00:30:00+04:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURLGet}}",
+					"host": [
+						"{{baseURLGet}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creating an Event",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"id\", pm.response.json().data.payload.id);\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startAt\": \"2022-11-05T00:00:00+04:00\",\r\n    \"endAt\": \"2022-11-05T00:30:00+04:00\",\r\n    \"title\": \"Собеседование\",\r\n    \"description\": \"Собес\",\r\n    \"color\": \"#43B658\",\r\n    \"backgroundColor\": \"#EBFDF2\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURLPost}}",
+					"host": [
+						"{{baseURLPost}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creating an Event in the Past",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"idPast\", pm.response.json().data.payload.id);\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startAt\": \"2022-10-31T11:30:00+04:00\",\r\n    \"endAt\": \"2022-10-31T12:00:00+04:00\",\r\n    \"title\": \"Ежедневная встреча\",\r\n    \"description\": \"встреча\",\r\n    \"color\": \"#43B658\",\r\n    \"backgroundColor\": \"#EBFDF2\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURLPost}}",
+					"host": [
+						"{{baseURLPost}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creating an Event in the Future",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"idFuture\", pm.response.json().data.payload.id);\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startAt\": \"2022-11-06T11:30:00+04:00\",\r\n    \"endAt\": \"2022-11-06T12:00:00+04:00\",\r\n    \"title\": \"Урок1\",\r\n    \"description\": \"Урок\",\r\n    \"color\": \"#43B658\",\r\n    \"backgroundColor\": \"#EBFDF2\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURLPost}}",
+					"host": [
+						"{{baseURLPost}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editing Event",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"idUpdate\", pm.response.json().data.payload.id);\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"startAt\": \"2022-11-07T00:00:00+04:00\",\r\n    \"endAt\": \"2022-11-07T00:30:00+04:00\",\r\n    \"title\": \"Собеседование\",\r\n    \"description\": \"Cобес\",\r\n    \"color\": \"#43B658\",\r\n    \"backgroundColor\": \"#EBFDF2\",\r\n    \"id\": {{id}},\r\n    \"oldStartAt\": \"2022-11-05T00:00:00+04:00\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURLUpdate}}",
+					"host": [
+						"{{BaseURLUpdate}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editing an Event in the Past",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"UpdatePast\", pm.response.json().data.payload.id);\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"startAt\": \"2022-11-02T11:30:00+04:00\",\r\n    \"endAt\": \"2022-11-02T12:00:00+04:00\",\r\n    \"title\": \"Ежеденевная\",\r\n    \"description\": \"встреча\",\r\n    \"color\": \"#43B658\",\r\n    \"backgroundColor\": \"#EBFDF2\",\r\n    \"id\": {{idPast}},\r\n    \"oldStartAt\": \"2022-10-31T11:30:00+04:00\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURLPost}}",
+					"host": [
+						"{{baseURLPost}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editing an event in the Future",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"UpdateFuture\", pm.response.json().data.payload.id);\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"startAt\": \"2022-11-08T11:30:00+04:00\",\r\n    \"endAt\": \"2022-11-08T12:00:00+04:00\",\r\n    \"title\": \"Урок2\",\r\n    \"description\": \"урок\",\r\n    \"color\": \"#43B658\",\r\n    \"backgroundColor\": \"#EBFDF2\",\r\n    \"id\": {{idFuture}},\r\n    \"oldStartAt\": \"2022-11-06T11:30:00+04:00\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURLUpdate}}",
+					"host": [
+						"{{BaseURLUpdate}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleting an Event",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": {{idUpdate}},\r\n    \"startAt\": \"2022-11-07T00:00:00+04:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURLRemove}}",
+					"host": [
+						"{{BaseURLRemove}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleting an Event in the Past",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": {{UpdatePast}},\r\n    \"startAt\": \"2022-11-02T11:30:00+04:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURLRemove}}",
+					"host": [
+						"{{BaseURLRemove}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleting an event in the Future",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": {{UpdateFuture}},\r\n    \"startAt\": \"2022-11-08T11:30:00+04:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURLRemove}}",
+					"host": [
+						"{{BaseURLRemove}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VySWQiOjEwMzM4NzM2LCJpZGVudGl0eSI6InRlc3QtbW9iaWxlMUBza3llbmcucnUiLCJpZGVudGl0eUxvZ2luIjpudWxsLCJpZGVudGl0eUVtYWlsIjoidGVzdC1tb2JpbGUxQHNreWVuZy5ydSIsImlkZW50aXR5UGhvbmUiOiIrNzkxMjI1MjUyNTIiLCJuYW1lIjoiUmFkMTIiLCJzdXJuYW1lIjoiXHUwNDE4XHUwNDMyXHUwNDMwXHUwNDNkXHUwNDNlXHUwNDMyIiwiZW1haWwiOiJ0ZXN0LW1vYmlsZTFAc2t5ZW5nLnJ1IiwidWlMYW5ndWFnZSI6InJ1IiwibG9jYWxlIjoicnUiLCJzZXJ2aWNlTG9jYWxlIjpudWxsLCJ1YXMiOjMwLCJqd3RUeXBlIjoxLCJqdGkiOiJhb2lMcTY1Q3A3WnRCSkxVVDl0WTlrc2h4aVdWWTAzTCIsImJyYW5kIjpudWxsLCJleHAiOjE2Njc5MzIyOTQsImF2YXRhclVybCI6Imh0dHBzOlwvXC9hdXRoLWF2YXRhcnMtc2t5ZW5nLmltZ2l4Lm5ldFwvMTAzMzg3MzZcL2I3ZWJhMjVkLTUyNjYtNDI3YS04YWRmLThkOWExZjI5MzUwMD9hdXRvPWZvcm1hdCUyQ2VuaGFuY2UmZml0PWNyb3AmaD0yMDAmaXhsaWI9cGhwLTIuMS4xJnE9NzUmc2F0PTgmc2hhcnA9MTAmdmliPTgmdz0yMDAiLCJiaXJ0aGRheSI6IjE5NzEtMDMtMDUiLCJhSXNTdHJvbmciOnRydWUsImFUeXBlIjoiVVNFUk5BTUVfUEFTU1dPUkQiLCJhVGltZSI6MTY2Nzg0NTg4OCwicm9sZXMiOlsiUk9MRV9URUFDSEVSIiwiUk9MRV9DUk0yX1RFQUNIRVJfQUNDRVNTIiwiUk9MRV9UVENfVVNBR0UiLCJST0xFX1ZJTUJPWF9URUFDSEVSX1VTQUdFIiwiUk9MRV9WSU1CT1hfQ1JFQVRFX1NDUkVFTklOR19URVNUIl19.tLq1DLQBogLiSVvbr80ig58uL-905ZeAwenpaT_OHwKRQLTFvQXGKmhIcci-skBtNPHPsKqzpELLiC5CHo0DbgzX973HTOAACfD_-_2fRPWO5qcRa_QHGbLp558sj4NKRJnyF4fdj1D_Dt--FwiI8f_MgdYvcRuYrQBRrzRrGNJxuyKmHTVZNA05delAXvx0J3DGJX5Fz-NSIFnv8I5a0liFXu70k1WEZhiVst7OfNokryEdxBhKyg6xhOMPj-ffeCvpRReOJun6D-WoBaQd0RiDk_8IaaruQjJJ_b3Q8lXGptRv0H8F_xFolZ9b-toO0ZjKrvhd9VIZ2XwSAPs7wQswoelcQ_bpse-QcVpUK6UfM0_q0p0JQ-mHM2g8cpwZxGlX8LR3JPijy5WQ3pBqaDnz2-8OylQjISZUNEO4v31vVALct6kpGsZWb9QD164AhmZ8p2TOxxP7DwRz3HFDtr2J9R_6VlB26wcJPyvQEWRJ82BEs1cGDlA90PedFLb6-IDHHjW99gPnsSmlqhcs31w35TRkV9IkQoxh-pdd33rDyCs0BxGvtHtxIW3VYNnSV6atO8YHjUKVNGhnafBNiwWfdrBo6lG7zLKlekjxZ11Xlh-Sm1Y4BXf9fOQJI6C4nhJS3wddUljWZ1Sk-V-ZWoI-dKda5z6f_2Vy9SypNac",
+			"type": "string"
+		},
+		{
+			"key": "baseURLGet",
+			"value": "https://api-teachers.skyeng.ru/v2/schedule/events",
+			"type": "string"
+		},
+		{
+			"key": "baseURLPost",
+			"value": "https://api-teachers.skyeng.ru/v2/schedule/createPersonal",
+			"type": "string"
+		},
+		{
+			"key": "BaseURLUpdate",
+			"value": "https://api-teachers.skyeng.ru/v2/schedule/updatePersonal",
+			"type": "string"
+		},
+		{
+			"key": "BaseURLRemove",
+			"value": "https://api-teachers.skyeng.ru/v2/schedule/removePersonal",
+			"type": "string"
+		},
+		{
+			"key": "id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "idUpdate",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "idPast",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "idFuture",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "UpdatePast",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "UpdateFuture",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

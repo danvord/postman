@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "ebcf97de-6871-4f64-bdc2-8f6265f47798",
+		"name": "Getting the Todo list",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23688018"
+	},
+	"item": [
+		{
+			"name": "Открыть список задач",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://todo-app-sky.herokuapp.com/",
+					"protocol": "https",
+					"host": [
+						"todo-app-sky",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Добавить задачу",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Здача25\",\r\n    \"сomplteted\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://todo-app-sky.herokuapp.com/",
+					"protocol": "https",
+					"host": [
+						"todo-app-sky",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Открыть список задач Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://todo-app-sky.herokuapp.com/",
+					"protocol": "https",
+					"host": [
+						"todo-app-sky",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Отметить задачу выполненой",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 54220,\r\n    \"title\": \"Здача25\",\r\n    \"completed\": true,\r\n    \"order\": null,\r\n    \"url\": \"/54220\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://todo-app-sky.herokuapp.com/54220",
+					"protocol": "https",
+					"host": [
+						"todo-app-sky",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"54220"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Открыть список задач Copy 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://todo-app-sky.herokuapp.com/",
+					"protocol": "https",
+					"host": [
+						"todo-app-sky",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Открыть список задач Copy 3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://todo-app-sky.herokuapp.com/",
+					"protocol": "https",
+					"host": [
+						"todo-app-sky",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
