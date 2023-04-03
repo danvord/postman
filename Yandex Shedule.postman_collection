@@ -1,0 +1,412 @@
+{
+	"info": {
+		"_postman_id": "569436f7-b405-475f-b30d-2f5d1e26bcd2",
+		"name": "Shedule",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23688018"
+	},
+	"item": [
+		{
+			"name": "Barnual to Dubna",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}?apikey={{key}}&format=json&from=c197&to=c215&date=2023-05-02",
+					"host": [
+						"{{url}}"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{key}}"
+						},
+						{
+							"key": "format",
+							"value": "json"
+						},
+						{
+							"key": "from",
+							"value": "c197"
+						},
+						{
+							"key": "to",
+							"value": "c215"
+						},
+						{
+							"key": "date",
+							"value": "2023-05-02"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ulyanovsk to Zelenograd",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}?apikey={{key}}&format=xml&from=c195&to=c216&date=2023-05-10",
+					"host": [
+						"{{url}}"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{key}}"
+						},
+						{
+							"key": "format",
+							"value": "xml"
+						},
+						{
+							"key": "from",
+							"value": "c195"
+						},
+						{
+							"key": "to",
+							"value": "c216"
+						},
+						{
+							"key": "date",
+							"value": "2023-05-10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shremetyevo to Moscow",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url2}}?apikey={{key}}&station=s9600213&date=2023-05-19",
+					"host": [
+						"{{url2}}"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{key}}"
+						},
+						{
+							"key": "station",
+							"value": "s9600213"
+						},
+						{
+							"key": "date",
+							"value": "2023-05-19"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Moscow to Samarkand",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"var key = \"UID\"\r",
+							"var value = pm.response.json().segments[0].thread.uid\r",
+							"pm.collectionVariables.set(key, value);\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url3}}?apikey={{key}}&uid=SU-1874_231030_c26_12&date=2023-03-26",
+					"host": [
+						"{{url3}}"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{key}}"
+						},
+						{
+							"key": "uid",
+							"value": "SU-1874_231030_c26_12"
+						},
+						{
+							"key": "date",
+							"value": "2023-03-26"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Moscow to Samarkand Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"var key = \"UID\"\r",
+							"var value = pm.response.json().segments[0].thread.uid\r",
+							"pm.collectionVariables.set(key, value);\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url3}}?apikey={{key}}&uid=SU-1874_231030_c26_12&date=2023-03-26&format=xml",
+					"host": [
+						"{{url3}}"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{key}}"
+						},
+						{
+							"key": "uid",
+							"value": "SU-1874_231030_c26_12"
+						},
+						{
+							"key": "date",
+							"value": "2023-03-26"
+						},
+						{
+							"key": "format",
+							"value": "xml"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Semenovka to Gavrilsk",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url4}}?apikey={{key}}&format=json&lat=50.440046&lng=40.4882367&distance=40&date=2023-05-11",
+					"host": [
+						"{{url4}}"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{key}}"
+						},
+						{
+							"key": "format",
+							"value": "json"
+						},
+						{
+							"key": "lat",
+							"value": "50.440046"
+						},
+						{
+							"key": "lng",
+							"value": "40.4882367"
+						},
+						{
+							"key": "distance",
+							"value": "40"
+						},
+						{
+							"key": "date",
+							"value": "2023-05-11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Semenovka to Gavrilsk Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url3}}?apikey={{key}}&format=xml&lat=50.440046&lng=40.4882367&distance=40&date=2023-05-18",
+					"host": [
+						"{{url3}}"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{key}}"
+						},
+						{
+							"key": "format",
+							"value": "xml"
+						},
+						{
+							"key": "lat",
+							"value": "50.440046"
+						},
+						{
+							"key": "lng",
+							"value": "40.4882367"
+						},
+						{
+							"key": "distance",
+							"value": "40"
+						},
+						{
+							"key": "date",
+							"value": "2023-05-18"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "key",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "uid2",
+			"value": "s23060195",
+			"type": "string"
+		},
+		{
+			"key": "url3",
+			"value": "https://api.rasp.yandex.net/v3.0/thread/",
+			"type": "string"
+		},
+		{
+			"key": "url",
+			"value": "https://api.rasp.yandex.net/v3.0/search/",
+			"type": "string"
+		},
+		{
+			"key": "url2",
+			"value": "https://api.rasp.yandex.net/v3.0/schedule/",
+			"type": "string"
+		},
+		{
+			"key": "url4",
+			"value": "https://api.rasp.yandex.net/v3.0/nearest_stations/",
+			"type": "string"
+		},
+		{
+			"key": "url3",
+			"value": "https://api.rasp.yandex.net/v3.0/thread/",
+			"type": "string"
+		}
+	]
+}
