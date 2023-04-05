@@ -1,0 +1,378 @@
+{
+	"info": {
+		"_postman_id": "243ff745-000f-4a31-80f1-0938c9ffb8fc",
+		"name": "Skyeng Course Work",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23688018"
+	},
+	"item": [
+		{
+			"name": "Получения списка",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"from\": \"2022-11-06T11:30:00+04:00\",\r\n    \"till\": \"2022-11-06T12:00:00+04:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURLGet}}",
+					"host": [
+						"{{baseURLGet}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ЗДЕСЬСоздание евента",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.collectionVariables.set(\"idEventNow\", pm.response.json().data.payload.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startAt\": \"2022-11-05T00:00:00+04:00\",\r\n    \"endAt\": \"2022-11-05T00:30:00+04:00\",\r\n    \"title\": \"Собеседование\",\r\n    \"description\": \"Собес\",\r\n    \"color\": \"#43B658\",\r\n    \"backgroundColor\": \"#EBFDF2\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURLPost}}",
+					"host": [
+						"{{baseURLPost}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cоздание евент в прошлом",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startAt\": \"2022-10-31T11:30:00+04:00\",\r\n    \"endAt\": \"2022-10-31T12:00:00+04:00\",\r\n    \"title\": \"Ежедневная встреча\",\r\n    \"description\": \"встреча\",\r\n    \"color\": \"#43B658\",\r\n    \"backgroundColor\": \"#EBFDF2\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURLPost}}",
+					"host": [
+						"{{baseURLPost}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание евента в будущем",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startAt\": \"2022-11-06T11:30:00+04:00\",\r\n    \"endAt\": \"2022-11-06T12:00:00+04:00\",\r\n    \"title\": \"Урок1\",\r\n    \"description\": \"Урок\",\r\n    \"color\": \"#43B658\",\r\n    \"backgroundColor\": \"#EBFDF2\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURLPost}}",
+					"host": [
+						"{{baseURLPost}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ЗДЕСЬРедактирование евента",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"idEventNowEdit\", pm.response.json().data.payload.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startAt\": \"2022-11-07T00:00:00+04:00\",\r\n    \"endAt\": \"2022-11-07T00:30:00+04:00\",\r\n    \"title\": \"Собеседование\",\r\n    \"description\": \"Cобес\",\r\n    \"color\": \"#43B658\",\r\n    \"backgroundColor\": \"#EBFDF2\",\r\n    \"id\": {{idEventNow}},\r\n    \"oldStartAt\": \"2022-11-05T00:00:00+04:00\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURLUpdate}}",
+					"host": [
+						"{{BaseURLUpdate}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Радактирование евента в прошлом",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"startAt\": \"2022-11-02T11:30:00+04:00\",\r\n    \"endAt\": \"2022-11-02T12:00:00+04:00\",\r\n    \"title\": \"Ежеденевная\",\r\n    \"description\": \"встреча\",\r\n    \"color\": \"#43B658\",\r\n    \"backgroundColor\": \"#EBFDF2\",\r\n    \"id\": 1986075,\r\n    \"oldStartAt\": \"2022-10-31T11:30:00+04:00\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURLPost}}",
+					"host": [
+						"{{baseURLPost}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Редактирование евента в будущем",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"startAt\": \"2022-11-08T11:30:00+04:00\",\r\n    \"endAt\": \"2022-11-08T12:00:00+04:00\",\r\n    \"title\": \"Урок2\",\r\n    \"description\": \"урок\",\r\n    \"color\": \"#43B658\",\r\n    \"backgroundColor\": \"#EBFDF2\",\r\n    \"id\": 1986082,\r\n    \"oldStartAt\": \"2022-11-06T11:30:00+04:00\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURLUpdate}}",
+					"host": [
+						"{{BaseURLUpdate}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ЗДЕСЬУдаление евента",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": {{idEventNowEdit}},\r\n    \"startAt\": \"2022-11-07T00:00:00+04:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURLRemove}}",
+					"host": [
+						"{{BaseURLRemove}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаления евента в прошлом",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1986078,\r\n    \"startAt\": \"2022-11-02T11:30:00+04:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURLRemove}}",
+					"host": [
+						"{{BaseURLRemove}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаления евента в будущем",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token_global={{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1986083,\r\n    \"startAt\": \"2022-11-08T11:30:00+04:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURLRemove}}",
+					"host": [
+						"{{BaseURLRemove}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "baseURLGet",
+			"value": "https://api-teachers.skyeng.ru/v2/schedule/events",
+			"type": "string"
+		},
+		{
+			"key": "baseURLPost",
+			"value": "https://api-teachers.skyeng.ru/v2/schedule/createPersonal",
+			"type": "string"
+		},
+		{
+			"key": "BaseURLUpdate",
+			"value": "https://api-teachers.skyeng.ru/v2/schedule/updatePersonal",
+			"type": "string"
+		},
+		{
+			"key": "BaseURLRemove",
+			"value": "https://api-teachers.skyeng.ru/v2/schedule/removePersonal",
+			"type": "string"
+		},
+		{
+			"key": "idEventNow",
+			"value": ""
+		},
+		{
+			"key": "idEventNowEdit",
+			"value": ""
+		}
+	]
+}
