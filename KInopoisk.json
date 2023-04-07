@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "0666bf76-d350-4939-8c0c-830d45b6fe80",
+		"name": "KInopoisk",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23688018"
+	},
+	"item": [
+		{
+			"name": "All list anime 2022",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}?year=2022&type=anime&raiting.kp=6-10",
+					"host": [
+						"{{url}}"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2022"
+						},
+						{
+							"key": "type",
+							"value": "anime"
+						},
+						{
+							"key": "raiting.kp",
+							"value": "6-10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Avatar the Way of Water",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}?id=505898",
+					"host": [
+						"{{url}}"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "505898"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Anastasia Zadarozhnaya",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}?persons.id=740589&premiere.russia=!null",
+					"host": [
+						"{{url}}"
+					],
+					"query": [
+						{
+							"key": "persons.id",
+							"value": "740589"
+						},
+						{
+							"key": "premiere.russia",
+							"value": "!null"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Negative movies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{review}}?raiting.kp=0-4&type=Негативный",
+					"host": [
+						"{{review}}"
+					],
+					"query": [
+						{
+							"key": "raiting.kp",
+							"value": "0-4"
+						},
+						{
+							"key": "type",
+							"value": "Негативный"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "url",
+			"value": "https://api.kinopoisk.dev/v1/movie",
+			"type": "string"
+		},
+		{
+			"key": "review",
+			"value": "https://api.kinopoisk.dev/v1/review",
+			"type": "string"
+		}
+	]
+}
