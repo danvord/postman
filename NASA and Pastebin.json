@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "ec67351d-4f6a-4ec3-af2d-2900e2c03051",
+		"name": "NASA and Pastebin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23688018"
+	},
+	"item": [
+		{
+			"name": "Get link NASA",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{NASA}}?api_key={{key}}&date=2020-01-01&hd=true",
+					"host": [
+						"{{NASA}}"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "date",
+							"value": "2020-01-01"
+						},
+						{
+							"key": "hd",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post description nasa to the pasetebin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "api_dev_key",
+							"value": "{{key_pastebin}}",
+							"type": "text"
+						},
+						{
+							"key": "api_option",
+							"value": "paste",
+							"type": "text"
+						},
+						{
+							"key": "api_paste_code",
+							"value": "Test task",
+							"type": "text"
+						},
+						{
+							"key": "api_user_key",
+							"value": "{{user_key}}",
+							"type": "text"
+						},
+						{
+							"key": "api_paste_code",
+							"value": "Why is Betelgeuse fading?  No one knows.  Betelgeuse, one of the brightest and most recognized stars in the night sky, is only half as bright as it used to be only five months ago.  Such variability is likely just  normal behavior for this famously variable supergiant, but the recent dimming has rekindled discussion on how long it may be before Betelgeuse does go supernova.  Known for its red color, Betelgeuse is one of the few stars to be resolved by modern telescopes, although only barely.  The featured artist's illustration imagines how Betelgeuse might look up close. Betelgeuse is thought to have a complex and tumultuous surface that frequently throws impressive flares.  Were it to replace the Sun (not recommended), its surface would extend out near the orbit of Jupiter, while gas plumes would bubble out past Neptune.  Since Betelgeuse is about 700 light years away, its eventual supernova will not endanger life on Earth even though its brightness may rival that of a full Moon.  Astronomers -- both amateur and professional -- will surely continue to monitor Betelgeuse as this new decade unfolds.    Free Presentation: APOD Editor to show best astronomy images of 2019 -- and the decade -- in NYC on January 3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://pastebin.com/api/api_post.php",
+					"protocol": "https",
+					"host": [
+						"pastebin",
+						"com"
+					],
+					"path": [
+						"api",
+						"api_post.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "api_dev_key",
+							"value": "{{key_pastebin}}",
+							"type": "text"
+						},
+						{
+							"key": "api_user_name",
+							"value": "Danvor",
+							"type": "text"
+						},
+						{
+							"key": "api_user_password",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://pastebin.com/api/api_login.php",
+					"protocol": "https",
+					"host": [
+						"pastebin",
+						"com"
+					],
+					"path": [
+						"api",
+						"api_login.php"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "key",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "key_pastebin",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "NASA",
+			"value": "https://api.nasa.gov/planetary/apod",
+			"type": "string"
+		},
+		{
+			"key": "PASTEBIN",
+			"value": "https://pastebin.com/api/api_post.php",
+			"type": "string"
+		},
+		{
+			"key": "user_key",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
