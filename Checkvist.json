@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "5c17d026-8efb-420d-aad2-8a30430929cc",
+		"name": "Checkvist",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23688018"
+	},
+	"item": [
+		{
+			"name": "Create Checklist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\":\"Test\",\r\n  \"private\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://checkvist.com/checklists",
+					"protocol": "https",
+					"host": [
+						"checkvist",
+						"com"
+					],
+					"path": [
+						"checklists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ckecklist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Client-Token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://checkvist.com/checklists.json",
+					"protocol": "https",
+					"host": [
+						"checkvist",
+						"com"
+					],
+					"path": [
+						"checklists.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit checklist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\":\"Froe\";\r\n  \"private\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://checkvist.com/checklists/871478.json",
+					"protocol": "https",
+					"host": [
+						"checkvist",
+						"com"
+					],
+					"path": [
+						"checklists",
+						"871478.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Checklist",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-csrf-token",
+						"value": "pF91hZ70QFYYhp7vp1ntO49llVIfS4AKeeaSpschG+w=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://checkvist.com/checklists/871431.json",
+					"protocol": "https",
+					"host": [
+						"checkvist",
+						"com"
+					],
+					"path": [
+						"checklists",
+						"871431.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get csrf token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://checkvist.com/auth/csrf_token?rv=1681931705",
+					"protocol": "https",
+					"host": [
+						"checkvist",
+						"com"
+					],
+					"path": [
+						"auth",
+						"csrf_token"
+					],
+					"query": [
+						{
+							"key": "rv",
+							"value": "1681931705"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
